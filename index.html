@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Jahangir Alam | Automobile Service Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D1B2A;--navy2:#162032;--navy3:#1E2D40;
+  --gold:#C9A84C;--gold2:#E8C96A;--gold3:#F5E0A0;
+  --white:#F4F1EB;--gray:#8A9AB0;--border:#2A3D55;
+  --green:#16A34A;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;-webkit-user-select:none;-moz-user-select:none;user-select:none}
+.allow-select{-webkit-user-select:text;-moz-user-select:text;user-select:text}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--navy)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:14px 48px;background:rgba(13,27,42,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:padding 0.3s}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--gold);letter-spacing:1px}
+.nav-logo span{color:var(--white)}
+.nav-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap}
+.nav-links a{font-size:0.7rem;font-weight:500;color:var(--gray);text-decoration:none;letter-spacing:1.2px;text-transform:uppercase;transition:color 0.25s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s}
+.nav-links a:hover{color:var(--gold)}.nav-links a:hover::after{width:100%}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 400px;align-items:center;position:relative;overflow:hidden;padding:100px 48px 60px;gap:40px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 72% 45%,rgba(201,168,76,0.1) 0%,transparent 55%),radial-gradient(ellipse at 18% 80%,rgba(37,99,235,0.07) 0%,transparent 50%),linear-gradient(135deg,#0D1B2A 0%,#0a1520 100%)}
+.hero-grid{position:absolute;inset:0;opacity:0.03;background-image:linear-gradient(var(--gold) 1px,transparent 1px),linear-gradient(90deg,var(--gold) 1px,transparent 1px);background-size:60px 60px}
+.hero-left{position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.3);padding:6px 14px;border-radius:2px;margin-bottom:20px;opacity:0;animation:fadeUp 0.6s 0.2s forwards}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.6rem);font-weight:700;line-height:1.05;color:var(--white);opacity:0;animation:fadeUp 0.6s 0.4s forwards}
+.hero-name em{font-style:normal;color:var(--gold)}
+.hero-title{font-size:0.88rem;color:var(--gray);margin:14px 0 20px;font-weight:300;opacity:0;animation:fadeUp 0.6s 0.55s forwards}
+.hero-keywords{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;opacity:0;animation:fadeUp 0.6s 0.65s forwards}
+.kw-tag{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);color:var(--gold3);font-size:0.64rem;letter-spacing:0.8px;text-transform:uppercase;padding:4px 10px;border-radius:2px}
+.hero-stats{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:30px;opacity:0;animation:fadeUp 0.6s 0.75s forwards}
+.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:var(--gold);line-height:1}
+.hero-stat-label{font-size:0.6rem;color:var(--gray);margin-top:3px;text-transform:uppercase;letter-spacing:0.8px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp 0.6s 0.9s forwards}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:12px 26px;border-radius:2px;font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.25s}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);padding:12px 26px;border-radius:2px;font-weight:500;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border:1px solid var(--border);transition:all 0.25s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* HERO PHOTO */
+.hero-right{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center;opacity:0;animation:fadeUp 0.7s 0.5s forwards}
+.photo-frame{position:relative;width:100%;max-width:360px}
+.photo-ring{position:absolute;inset:-14px;border:1px solid rgba(201,168,76,0.2);border-radius:3px}
+.hero-photo{width:100%;display:block;pointer-events:none !important;-webkit-user-drag:none;filter:drop-shadow(0 20px 56px rgba(0,0,0,0.5));border-radius:3px}
+.photo-glow{position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:70%;height:46px;background:radial-gradient(ellipse,rgba(201,168,76,0.18),transparent 70%);filter:blur(18px)}
+.hero-scroll{position:absolute;bottom:32px;left:25%;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gray);font-size:0.64rem;letter-spacing:2px;text-transform:uppercase;animation:bounce 2.5s infinite}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent)}
+
+/* SECTIONS */
+section{padding:80px 48px}
+.section-header{display:flex;align-items:center;gap:16px;margin-bottom:46px}
+.section-num{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--gold);letter-spacing:2px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:400;color:var(--white)}
+.section-line{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+
+/* CV SECTION */
+.cv-card{background:linear-gradient(135deg,var(--navy3),#1a2a3e);border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:4px;padding:42px;display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center;max-width:920px;margin:0 auto;position:relative;overflow:hidden}
+.cv-card::before{content:'';position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:radial-gradient(circle,rgba(201,168,76,0.1),transparent 70%);border-radius:50%}
+.cv-card-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--white);margin-bottom:8px}
+.cv-card-sub{color:var(--gray);font-size:0.85rem;margin-bottom:17px;line-height:1.6}
+.cv-tags{display:flex;gap:7px;flex-wrap:wrap}
+.cv-tag{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold3);font-size:0.64rem;letter-spacing:0.8px;padding:4px 10px;border-radius:2px}
+.cv-download-btn{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--gold);color:var(--navy);padding:20px 32px;border-radius:4px;text-decoration:none;font-weight:700;font-size:0.84rem;letter-spacing:1px;text-transform:uppercase;transition:all 0.25s;white-space:nowrap;box-shadow:0 8px 28px rgba(201,168,76,0.3)}
+.cv-download-btn:hover{background:var(--gold2);transform:translateY(-3px)}
+.cv-download-btn svg{width:24px;height:24px}
+.cv-dl-label{font-size:0.62rem;font-weight:400;opacity:0.7}
+
+/* ── JOB EXPERIENCE TIMELINE ── */
+.timeline{position:relative;padding-left:0;max-width:1000px}
+.timeline::before{content:'';position:absolute;left:32px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),rgba(201,168,76,0.1))}
+.tl-item{position:relative;padding-left:80px;margin-bottom:44px}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:20px;top:18px;width:24px;height:24px;background:var(--navy3);border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;z-index:1}
+.tl-dot.current{background:var(--gold)}
+.tl-card{background:var(--navy3);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform 0.25s,border-color 0.25s}
+.tl-card:hover{transform:translateY(-3px);border-color:rgba(201,168,76,0.4)}
+.tl-card-head{padding:22px 26px 16px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.tl-position{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--white);margin-bottom:5px}
+.tl-company{font-size:0.85rem;font-weight:600;color:var(--gold)}
+.tl-duration{font-size:0.72rem;color:var(--gray);text-align:right;white-space:nowrap}
+.tl-duration-years{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--gold);display:block;text-align:right}
+.tl-badge{display:inline-block;background:rgba(22,163,74,0.15);border:1px solid rgba(22,163,74,0.35);color:#4ade80;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-top:4px}
+.tl-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.tl-col{padding:18px 26px}
+.tl-col:first-child{border-right:1px solid var(--border)}
+.tl-col-title{font-size:0.68rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:10px;font-weight:500}
+.tl-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.tl-col ul li{font-size:0.8rem;color:var(--gray);display:flex;align-items:flex-start;gap:8px;line-height:1.45}
+.tl-col ul li::before{content:'›';color:var(--gold);font-size:1rem;line-height:1.2;flex-shrink:0}
+.tl-col ul li strong{color:var(--gold3)}
+
+/* ── EDUCATION CARDS ── */
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.edu-card{background:linear-gradient(135deg,var(--navy3),#1a2a3e);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform 0.3s}
+.edu-card:hover{transform:translateY(-4px)}
+.edu-card-top{padding:24px 22px 18px;position:relative}
+.edu-level{font-size:0.64rem;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:10px}
+.edu-degree{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--white);margin-bottom:6px;line-height:1.3}
+.edu-major{font-size:0.8rem;color:var(--gold3);margin-bottom:14px}
+.edu-inst{font-size:0.78rem;color:var(--gray);display:flex;align-items:center;gap:6px}
+.edu-card-bottom{background:rgba(13,27,42,0.4);padding:12px 22px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border)}
+.edu-gpa{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--gold3)}
+.edu-year{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold)}
+.edu-icon{position:absolute;top:20px;right:20px;font-size:2rem;opacity:0.15}
+
+/* ── SKILLS SECTION ── */
+.skills-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.skill-group{background:var(--navy3);border:1px solid var(--border);border-radius:4px;padding:26px}
+.skill-group-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;color:var(--gold);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:var(--white);font-size:0.76rem;padding:6px 12px;border-radius:2px;transition:all 0.2s}
+.skill-tag:hover{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold3)}
+
+/* ── GALLERY ── */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery-card{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:4/3;background:var(--navy3);border:1px solid var(--border)}
+.gallery-card img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none !important;-webkit-user-drag:none;transition:transform 0.4s;filter:brightness(0.88)}
+.gallery-card:hover img{transform:scale(1.05);filter:brightness(0.65)}
+.gallery-card::before{content:'MD. JAHANGIR ALAM  •  PROTECTED';position:absolute;inset:0;z-index:2;pointer-events:none;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:0.5rem;color:rgba(255,255,255,0.13);letter-spacing:3px;transform:rotate(-35deg);white-space:nowrap}
+.gallery-protect{position:absolute;inset:0;z-index:3;display:flex;align-items:flex-end;padding:12px;transition:background 0.3s}
+.gallery-card:hover .gallery-protect{background:rgba(13,27,42,0.42)}
+.gallery-badge{display:flex;align-items:center;gap:5px;background:rgba(13,27,42,0.88);border:1px solid rgba(201,168,76,0.4);padding:4px 10px;border-radius:2px;font-size:0.62rem;color:var(--gold3);letter-spacing:1px;text-transform:uppercase;opacity:0;transition:opacity 0.3s}
+.gallery-card:hover .gallery-badge{opacity:1}
+.gallery-placeholder{aspect-ratio:4/3;border-radius:4px;border:2px dashed var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--gray);font-size:0.7rem;background:rgba(22,32,50,0.4)}
+.gallery-placeholder svg{opacity:0.2}
+.gallery-placeholder span{opacity:0.4;letter-spacing:1px}
+
+/* ── REPORT GRID ── */
+.report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.report-card{background:var(--navy3);border:1px solid var(--border);border-left:3px solid var(--gold);padding:22px;border-radius:4px;position:relative;overflow:hidden;transition:transform 0.25s}
+.report-card:hover{transform:translateY(-3px)}
+.report-icon{font-size:1.4rem;margin-bottom:10px}
+.report-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;color:var(--white);margin-bottom:5px}
+.report-sub{font-size:0.77rem;color:var(--gray);line-height:1.5}
+.report-lock{position:absolute;top:15px;right:15px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:0.8rem}
+.report-coming{display:inline-block;margin-top:12px;font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:0.7}
+
+/* ── CERT GRID ── */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cert-card{background:linear-gradient(135deg,var(--navy3),#1a2a3e);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform 0.3s}
+.cert-card:hover{transform:translateY(-4px)}
+.cert-img-wrap{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--navy2);min-height:90px}
+.cert-img-wrap img{width:100%;height:100%;object-fit:cover;pointer-events:none !important;-webkit-user-drag:none;filter:brightness(0.82)}
+.cert-img-wrap::after{content:'PROTECTED';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(13,27,42,0);font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:4px;color:transparent;transition:all 0.3s}
+.cert-card:hover .cert-img-wrap::after{background:rgba(13,27,42,0.7);color:rgba(201,168,76,0.7)}
+.cert-body{padding:16px}
+.cert-title{font-family:'Cormorant Garamond',serif;font-size:0.98rem;color:var(--white);margin-bottom:4px}
+.cert-meta{font-size:0.73rem;color:var(--gray)}
+.cert-year{display:inline-block;margin-top:8px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--gold3);font-size:0.63rem;padding:3px 9px;border-radius:2px;letter-spacing:1px}
+
+/* ── SOCIAL LINKS ── */
+.social-links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:13px;max-width:900px}
+.sl-card{display:flex;align-items:center;gap:14px;background:var(--navy3);border:1px solid var(--border);padding:17px;border-radius:4px;text-decoration:none;transition:all 0.25s;position:relative;overflow:hidden}
+.sl-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.sl-card.linkedin::before{background:#0A66C2}.sl-card.bdjobs::before{background:#E53E3E}
+.sl-card.facebook::before{background:#1877F2}.sl-card.youtube::before{background:#FF0000}
+.sl-card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.sl-icon{font-size:1.5rem;flex-shrink:0}
+.sl-label{font-size:0.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray);margin-bottom:2px}
+.sl-val{font-size:0.8rem;font-weight:600;color:var(--white)}
+.sl-card:hover .sl-val{color:var(--gold)}
+
+/* ── PERSONAL DOCS ── */
+.docs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.doc-card{background:var(--navy3);border:1px solid var(--border);border-top:2px solid rgba(201,168,76,0.35);border-radius:4px;overflow:hidden;transition:transform 0.3s}
+.doc-card:hover{transform:translateY(-4px)}
+.doc-img-wrap{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--navy2);min-height:90px;display:flex;align-items:center;justify-content:center}
+.doc-img-wrap img{width:100%;height:100%;object-fit:cover;pointer-events:none !important;-webkit-user-drag:none;filter:blur(5px) brightness(0.4);transform:scale(1.08)}
+.doc-shield{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
+.doc-shield-icon{font-size:2rem}.doc-shield-text{font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,0.8);font-family:'DM Mono',monospace}
+.doc-body{padding:16px}
+.doc-title{font-family:'Cormorant Garamond',serif;font-size:0.96rem;color:var(--white);margin-bottom:3px}
+.doc-meta{font-size:0.72rem;color:var(--gray)}
+.doc-id{margin-top:7px;font-family:'DM Mono',monospace;font-size:0.66rem;color:var(--gold3);letter-spacing:0.8px}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px;max-width:840px}
+.contact-card{background:var(--navy3);border:1px solid var(--border);padding:20px;border-radius:4px;text-align:center;transition:border-color 0.25s}
+.contact-card:hover{border-color:var(--gold)}
+.contact-icon{font-size:1.5rem;margin-bottom:9px}
+.contact-label{font-size:0.63rem;text-transform:uppercase;letter-spacing:2px;color:var(--gray);margin-bottom:5px}
+.contact-value{font-size:0.84rem;color:var(--white)}
+
+/* FOOTER */
+footer{background:#060e18;border-top:1px solid var(--border);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.footer-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold)}
+.footer-right{font-size:0.72rem;color:var(--gray)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.55s,transform 0.55s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── VIDEO GALLERY ── */
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.video-card{background:var(--navy3);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform 0.3s}
+.video-card:hover{transform:translateY(-4px)}
+.video-wrap{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.video-wrap iframe{width:100%;height:100%;border:none;pointer-events:auto}
+.video-overlay{position:absolute;inset:0;z-index:5;background:transparent;cursor:default;pointer-events:none}
+.video-body{padding:14px 16px}
+.video-title{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--white);margin-bottom:4px}
+.video-meta{font-size:0.72rem;color:var(--gray)}
+.video-placeholder{aspect-ratio:16/9;background:rgba(22,32,50,0.6);border:2px dashed var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--gray)}
+.video-placeholder-icon{font-size:2.5rem;opacity:0.3}
+.video-placeholder-text{font-size:0.72rem;letter-spacing:1px;opacity:0.45}
+.video-add-note{font-size:0.78rem;color:var(--gray);margin-bottom:28px;line-height:1.6}
+.video-add-note code{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold3);padding:2px 8px;border-radius:2px;font-size:0.72rem}
+
+/* ── TESTIMONIALS ── */
+.testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.testimonial-card{background:var(--navy3);border:1px solid var(--border);border-radius:4px;padding:28px;position:relative;transition:transform 0.3s,border-color 0.3s}
+.testimonial-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,0.4)}
+.testimonial-card::before{content:'"';position:absolute;top:14px;left:20px;font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(201,168,76,0.12);line-height:1}
+.testimonial-stars{display:flex;gap:4px;margin-bottom:14px}
+.star{color:var(--gold);font-size:0.85rem}
+.testimonial-text{font-size:0.88rem;color:var(--gray);line-height:1.75;margin-bottom:20px;font-style:italic;position:relative;z-index:1}
+.testimonial-author{display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid var(--border)}
+.author-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#8B6914);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--navy);flex-shrink:0}
+.author-name{font-weight:600;font-size:0.88rem;color:var(--white);margin-bottom:2px}
+.author-role{font-size:0.73rem;color:var(--gray)}
+.author-company{font-size:0.7rem;color:var(--gold3)}
+
+/* ── NEWS / AWARDS ── */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.news-card{background:var(--navy3);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform 0.3s}
+.news-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,0.4)}
+.news-img-wrap{position:relative;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,var(--navy2),var(--navy3));display:flex;align-items:center;justify-content:center;min-height:90px}
+.news-img-wrap img{width:100%;height:100%;object-fit:cover;pointer-events:none !important;-webkit-user-drag:none;filter:brightness(0.8)}
+.news-img-icon{font-size:3rem;opacity:0.25}
+.news-badge{position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:2px;font-size:0.62rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+.news-badge.award{background:rgba(201,168,76,0.85);color:var(--navy)}
+.news-badge.media{background:rgba(37,99,235,0.85);color:white}
+.news-badge.recognition{background:rgba(22,163,74,0.85);color:white}
+.news-body{padding:17px}
+.news-title{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--white);margin-bottom:6px;line-height:1.35}
+.news-meta{font-size:0.73rem;color:var(--gray);margin-bottom:8px}
+.news-year{display:inline-block;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--gold3);font-size:0.62rem;padding:3px 9px;border-radius:2px;letter-spacing:1px}
+
+/* TOAST */
+#rc-block{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:rgba(220,38,38,0.93);color:white;padding:10px 24px;border-radius:4px;font-size:0.77rem;z-index:9999;transition:transform 0.3s;pointer-events:none}
+#rc-block.show{transform:translateX(-50%) translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-right{display:none}
+  .report-grid,.cert-grid,.docs-grid,.edu-grid,.skills-wrap,.g3{grid-template-columns:repeat(2,1fr)}
+  .tl-body{grid-template-columns:1fr}
+  .tl-col:first-child{border-right:none;border-bottom:1px solid var(--border)}
+}
+@media(max-width:580px){
+  nav{padding:12px 18px}.nav-links{display:none}
+  section{padding:54px 18px}.hero{padding:86px 18px 54px}
+  .report-grid,.cert-grid,.docs-grid,.edu-grid,.skills-wrap,.g3{grid-template-columns:1fr}
+  .cv-card{grid-template-columns:1fr;padding:24px 18px}
+  .tl-body{grid-template-columns:1fr}
+}
+
+/* ── VEHICLE BANNER ── */
+.vehicle-banner{background:linear-gradient(135deg,var(--navy3),#1a2a3e);border:1px solid var(--border);border-radius:4px;padding:28px 32px;margin-top:34px;position:relative;overflow:hidden}
+.vehicle-banner::before{content:'';position:absolute;right:-20px;top:-20px;width:130px;height:130px;background:radial-gradient(circle,rgba(201,168,76,0.08),transparent 70%);border-radius:50%}
+.vehicle-banner-title{font-size:0.66rem;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:10px}
+.vehicle-banner-heading{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--white);margin-bottom:14px}
+.vehicle-tags{display:flex;flex-wrap:wrap;gap:8px}
+.v-tag{display:flex;align-items:center;gap:7px;background:rgba(13,27,42,0.5);border:1px solid var(--border);padding:6px 12px;border-radius:3px;font-size:0.78rem;color:var(--white);transition:border-color 0.2s}
+.v-tag:hover{border-color:rgba(201,168,76,0.4)}
+.v-tag-type{font-size:0.59rem;color:var(--gray);display:block;letter-spacing:0.8px}
+/* ── REPORT PDF ── */
+.report-pdf-note{font-size:0.77rem;color:var(--gray);margin-bottom:24px;padding:13px 17px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:4px;line-height:1.65}
+.report-pdf-note code{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold3);padding:2px 7px;border-radius:2px;font-size:0.68rem}
+.report-pdf-btn{display:inline-flex;align-items:center;gap:7px;margin-top:11px;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.35);color:#4ade80;font-size:0.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:6px 13px;border-radius:2px;text-decoration:none;transition:all 0.25s}
+.report-pdf-btn:hover{background:rgba(34,197,94,0.22);transform:translateY(-1px)}
+/* ── REVIEW SYSTEM ── */
+.review-section-wrap{background:var(--navy3);border-radius:4px;border:1px solid var(--border);padding:40px 48px;margin-bottom:0}
+.review-divider{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.review-divider-line{flex:1;height:1px;background:var(--border)}
+.review-divider-text{font-size:0.68rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--gold)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:44px}
+.testimonial-card{background:var(--navy2);border:1px solid var(--border);border-radius:4px;padding:26px;position:relative;transition:transform 0.3s,border-color 0.3s}
+.testimonial-card:hover{transform:translateY(-3px);border-color:rgba(201,168,76,0.4)}
+.testimonial-card::before{content:'\201C';position:absolute;top:10px;left:18px;font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:rgba(201,168,76,0.1);line-height:1}
+.testimonial-stars{display:flex;gap:3px;margin-bottom:12px}
+.star{color:var(--gold);font-size:0.82rem}
+.testimonial-text{font-size:0.86rem;color:var(--gray);line-height:1.75;margin-bottom:18px;font-style:italic;position:relative;z-index:1}
+.testimonial-author{display:flex;align-items:center;gap:13px;padding-top:14px;border-top:1px solid var(--border)}
+.author-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#8B6914);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--navy);flex-shrink:0}
+.author-name{font-weight:600;font-size:0.86rem;color:var(--white);margin-bottom:1px}
+.author-role{font-size:0.72rem;color:var(--gray)}
+.author-company{font-size:0.68rem;color:var(--gold3)}
+/* Public Review Form */
+.review-form-card{background:var(--navy2);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:4px;padding:28px;max-width:820px;margin-top:8px}
+.review-form-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--white);margin-bottom:5px}
+.review-form-sub{font-size:0.78rem;color:var(--gray);margin-bottom:20px}
+.review-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.review-field{display:flex;flex-direction:column;gap:5px}
+.review-field label{font-size:0.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold3)}
+.review-field input,.review-field textarea,.review-field select{background:rgba(13,27,42,0.7);border:1px solid var(--border);color:var(--white);padding:9px 13px;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.25s;-webkit-user-select:text;user-select:text}
+.review-field input:focus,.review-field textarea:focus,.review-field select:focus{border-color:var(--gold)}
+.review-field textarea{resize:vertical;min-height:74px}
+.review-field select option{background:var(--navy3)}
+.review-stars-input{display:flex;gap:6px;margin-bottom:14px}
+.star-btn{background:none;border:none;font-size:1.35rem;cursor:pointer;color:var(--border);transition:color 0.2s;padding:0}
+.star-btn.active{color:var(--gold)}
+.review-submit-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:11px 26px;border-radius:3px;border:none;font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.25s}
+.review-submit-btn:hover{background:var(--gold2);transform:translateY(-2px)}
+.review-submit-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.review-msg{margin-top:10px;font-size:0.8rem;padding:9px 13px;border-radius:3px;display:none}
+.review-msg.success{background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);color:#4ade80}
+.review-msg.error{background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.3);color:#f87171}
+.public-reviews-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}
+.pub-review-card{background:rgba(13,27,42,0.5);border:1px solid var(--border);border-radius:4px;padding:18px;position:relative;transition:border-color 0.25s}
+.pub-review-card:hover{border-color:rgba(201,168,76,0.3)}
+.pub-review-card::before{content:'\201C';position:absolute;top:8px;left:12px;font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:rgba(201,168,76,0.08);line-height:1}
+.pub-review-stars{font-size:0.74rem;color:var(--gold);margin-bottom:8px}
+.pub-review-text{font-size:0.81rem;color:var(--gray);line-height:1.7;margin-bottom:13px;font-style:italic}
+.pub-review-author{display:flex;align-items:center;gap:9px;border-top:1px solid var(--border);padding-top:11px}
+.pub-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#8B6914);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.85rem;font-weight:700;color:var(--navy);flex-shrink:0}
+.pub-author-name{font-weight:600;font-size:0.78rem;color:var(--white)}
+.pub-author-role{font-size:0.66rem;color:var(--gray)}
+.pub-author-company{font-size:0.63rem;color:var(--gold3)}
+.pub-date{font-size:0.6rem;color:var(--gray);margin-left:auto;white-space:nowrap}
+.reviews-loading{color:var(--gray);font-size:0.78rem;padding:20px 0;grid-column:1/-1;text-align:center}
+.firebase-note{background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:4px;padding:13px 17px;margin-bottom:20px;font-size:0.76rem;color:var(--gray);line-height:1.65}
+.firebase-note strong{color:#93c5fd}
+.firebase-note code{background:rgba(37,99,235,0.12);color:#93c5fd;padding:2px 6px;border-radius:2px;font-size:0.68rem}
+@media(max-width:900px){.testimonials-grid,.public-reviews-list{grid-template-columns:1fr}}
+
+
+/* ── SOCIAL EDIT PANEL ── */
+.social-edit-panel{background:var(--navy3);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:4px;padding:26px;margin-top:20px;max-width:760px}
+.sep-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--white);margin-bottom:18px}
+.sep-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.sep-field{display:flex;flex-direction:column;gap:5px}
+.sep-field label{font-size:0.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold3)}
+.sep-field input{background:rgba(13,27,42,0.7);border:1px solid var(--border);color:var(--white);padding:9px 13px;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.25s;-webkit-user-select:text;user-select:text}
+.sep-field input:focus{border-color:var(--gold)}
+.sep-field input::placeholder{color:var(--gray);font-size:0.75rem}
+.sep-save-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:10px 24px;border-radius:3px;border:none;font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.25s}
+.sep-save-btn:hover{background:var(--gold2);transform:translateY(-2px)}
+.sep-msg{margin-top:10px;font-size:0.8rem;color:#4ade80;display:none}
+.sep-toggle-btn{display:inline-flex;align-items:center;gap:7px;margin-top:16px;background:transparent;border:1px solid var(--border);color:var(--gray);padding:8px 18px;border-radius:3px;font-size:0.75rem;cursor:pointer;transition:all 0.25s;letter-spacing:0.8px}
+.sep-toggle-btn:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:580px){.sep-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<div id="rc-block">🔒 Content is protected — saving not allowed</div>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo">Jahangir<span> Alam</span></div>
+  <ul class="nav-links">
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#reports">Reports</a></li>
+    <li><a href="#activity">Activity</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#social">Social</a></li>
+    <li><a href="#entertainment">Fun</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#news">Awards</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#connect">Connect</a></li>
+    <li><a href="#documents">Docs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-left">
+    <div class="hero-tag"><span>●</span> Automobile Service Expert</div>
+    <h1 class="hero-name">Md. <em>Jahangir</em><br>Alam</h1>
+    <p class="hero-title">Workshop & Service Management Professional &nbsp;|&nbsp; B.Sc. Mechanical Engineering &nbsp;|&nbsp; EV Specialist</p>
+    <div class="hero-keywords">
+      <span class="kw-tag">Workshop Manager</span>
+      <span class="kw-tag">Service Leader</span>
+      <span class="kw-tag">Workshop Head</span>
+      <span class="kw-tag">Dealer Management</span>
+      <span class="kw-tag">Service Coordinator</span>
+      <span class="kw-tag">Aftersales Expert</span>
+      <span class="kw-tag">EV Specialist</span>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">11+</div><div class="hero-stat-label">Years Experience</div></div>
+      <div><div class="hero-stat-num">350+</div><div class="hero-stat-label">Monthly Jobs</div></div>
+      <div><div class="hero-stat-num">18</div><div class="hero-stat-label">Team Size</div></div>
+      <div><div class="hero-stat-num">15%</div><div class="hero-stat-label">Efficiency Gain</div></div>
+      <div><div class="hero-stat-num">95%</div><div class="hero-stat-label">Customer Satisfaction</div></div>
+      <div><div class="hero-stat-num">30+</div><div class="hero-stat-label">Dealers Monitored</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#cv" class="btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Download CV
+      </a>
+      <a href="#contact" class="btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="photo-frame">
+      <div class="photo-ring"></div>
+      <img class="hero-photo" src="images/Profile_Picture.png" alt="Md. Jahangir Alam" draggable="false" onerror="this.parentElement.style.display='none'">
+      <div class="photo-glow"></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>SCROLL</div>
+</section>
+
+<!-- ══ 01 — CV ══ -->
+<section id="cv" style="background:var(--navy2)">
+  <div class="section-header fade-in">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Curriculum Vitae</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="cv-card fade-in">
+    <div>
+      <h3 class="cv-card-title allow-select">Md. Jahangir Alam</h3>
+      <p class="cv-card-sub allow-select">Automobile Service & Workshop Management Expert with 11+ years of experience in commercial vehicles, 2W & 3W operations, dealer management, warranty, KPI reporting, and EV service readiness.</p>
+      <div class="cv-tags">
+        <span class="cv-tag">Workshop Manager</span><span class="cv-tag">Service Leader</span>
+        <span class="cv-tag">Workshop Head</span><span class="cv-tag">Dealer Management</span>
+        <span class="cv-tag">Service Coordinator</span><span class="cv-tag">Technical Diagnostics</span>
+        <span class="cv-tag">Team Leadership</span><span class="cv-tag">EV Readiness</span>
+        <span class="cv-tag">KPI & MIS</span><span class="cv-tag">Warranty Admin</span>
+        <span class="cv-tag">Aftersales Expert</span><span class="cv-tag">Root Cause Analysis</span>
+      </div>
+    </div>
+    <a href="Jahangir_Alam_CV.pdf" download="Jahangir_Alam_CV.pdf" class="cv-download-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 15V3M7 10l5 5 5-5"/><rect x="3" y="17" width="18" height="4" rx="1"/></svg>
+      Download CV
+      <span class="cv-dl-label">PDF Format</span>
+    </a>
+  </div>
+</section>
+
+<!-- ══ 02 — WORK EXPERIENCE ══ -->
+<section id="experience" style="background:var(--navy)">
+  <div class="section-header fade-in">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- JOB 1 — CURRENT -->
+    <div class="tl-item fade-in">
+      <div class="tl-dot current">★</div>
+      <div class="tl-card">
+        <div class="tl-card-head">
+          <div>
+            <div class="tl-position">In-Charge — Factory & Service Operations (2W & 3W)</div>
+            <div class="tl-company">UTTARA MOTORS LIMITED &nbsp;·&nbsp; Bajaj Authorized Dealer</div>
+            <span class="tl-badge">● Currently Working</span>
+          </div>
+          <div>
+            <span class="tl-duration-years">5.4 Yrs</span>
+            <div class="tl-duration">January 2021 – Present</div>
+          </div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-col">
+            <div class="tl-col-title">Key Responsibilities</div>
+            <ul>
+              <li>Manage daily workshop & service operations for Bajaj 2W & 3W vehicles</li>
+              <li>Supervise a team of <strong>18 technicians</strong> for consistent service quality</li>
+              <li>Monitor <strong>30+ dealer</strong> performance via DMS & MIS reporting</li>
+              <li>Process warranty claims & minimize rejection rates</li>
+              <li>Prepare monthly service performance reports & KPI analysis</li>
+              <li>Coordinate customer complaint handling & technical training programs</li>
+              <li>Develop Annual Business Plan (ABP) & service penetration strategy</li>
+            </ul>
+          </div>
+          <div class="tl-col">
+            <div class="tl-col-title">Key Achievements</div>
+            <ul>
+              <li>Improved service turnaround time by <strong>15%</strong> through process streamlining</li>
+              <li>Reduced repeat repair cases by <strong>12%</strong> via accurate root cause analysis</li>
+              <li>Oversaw <strong>350+ monthly service jobs</strong> with consistent quality</li>
+              <li>Reduced vehicle delivery delay through better manpower allocation</li>
+              <li>Achieved <strong>95% customer satisfaction</strong> rate across service operations</li>
+              <li>Strengthened warranty claim accuracy, significantly reducing rejections</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOB 2 -->
+    <div class="tl-item fade-in">
+      <div class="tl-dot">2</div>
+      <div class="tl-card">
+        <div class="tl-card-head">
+          <div>
+            <div class="tl-position">Senior Service Engineer — Workshop In-Charge (Commercial Vehicles)</div>
+            <div class="tl-company">RANKS MOTORS WORKSHOP LTD. &nbsp;·&nbsp; RANGS GROUP</div>
+          </div>
+          <div>
+            <span class="tl-duration-years">3.9 Yrs</span>
+            <div class="tl-duration">April 2017 – December 2020</div>
+          </div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-col">
+            <div class="tl-col-title">Key Responsibilities</div>
+            <ul>
+              <li>Managed workshop for Eicher (Bus & Truck), Tata, Ashok Leyland, Toyota Dyna</li>
+              <li>Diagnosed complex diesel engine, CRDI & EMS system issues</li>
+              <li>Led technical teams for repair, maintenance & field service</li>
+              <li>Prepared service estimates, FIRs & technical failure analysis reports</li>
+              <li>Managed Ajax Fiori construction equipment operations & maintenance</li>
+            </ul>
+          </div>
+          <div class="tl-col">
+            <div class="tl-col-title">Key Achievements</div>
+            <ul>
+              <li>Reduced repeat repair cases through precise root cause diagnosis</li>
+              <li>Improved workshop productivity through optimized service planning</li>
+              <li>Minimized vehicle downtime via faster technical troubleshooting</li>
+              <li>Supported field teams in resolving critical technical failures on time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOB 3 -->
+    <div class="tl-item fade-in">
+      <div class="tl-dot">3</div>
+      <div class="tl-card">
+        <div class="tl-card-head">
+          <div>
+            <div class="tl-position">Executive — Service (Workshop In-Charge, Commercial Vehicles)</div>
+            <div class="tl-company">RUNNER MOTORS LIMITED &nbsp;·&nbsp; RUNNER GROUP</div>
+          </div>
+          <div>
+            <span class="tl-duration-years">3.5 Yrs</span>
+            <div class="tl-duration">November 2013 – April 2017</div>
+          </div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-col">
+            <div class="tl-col-title">Key Responsibilities</div>
+            <ul>
+              <li>Supervised service activities for commercial vehicles including PDI & after-sales</li>
+              <li>Assisted technicians with diagnostics, troubleshooting & hands-on repair guidance</li>
+              <li>Maintained service records, job cards, cost estimates & invoices</li>
+              <li>Ensured customer satisfaction through timely quality-focused repairs</li>
+            </ul>
+          </div>
+          <div class="tl-col">
+            <div class="tl-col-title">Key Achievements</div>
+            <ul>
+              <li>Improved customer service response time through effective coordination</li>
+              <li>Maintained consistent workshop performance under high service volumes</li>
+              <li>Supported successful PDI inspections for new commercial vehicles</li>
+              <li>Increased technician performance through hands-on mentoring</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 4W COMMERCIAL VEHICLE EXPERIENCE BANNER -->
+  <div class="vehicle-banner fade-in">
+    <div class="vehicle-banner-title">Commercial Vehicle & Brand Experience — 11+ Years</div>
+    <div class="vehicle-banner-heading">Hands-on expertise across 2W, 3W, 4W & Heavy Commercial Vehicles</div>
+    <div class="vehicle-tags">
+      <div class="v-tag"><span>🛵</span><div><strong>Bajaj</strong><span class="v-tag-type">2W &amp; 3W</span></div></div>
+      <div class="v-tag"><span>🚌</span><div><strong>Eicher Bus</strong><span class="v-tag-type">Heavy Commercial</span></div></div>
+      <div class="v-tag"><span>🚛</span><div><strong>Eicher Truck</strong><span class="v-tag-type">Heavy Commercial</span></div></div>
+      <div class="v-tag"><span>🚚</span><div><strong>Tata Motors</strong><span class="v-tag-type">Truck / Bus</span></div></div>
+      <div class="v-tag"><span>🚛</span><div><strong>Ashok Leyland</strong><span class="v-tag-type">Heavy Truck</span></div></div>
+      <div class="v-tag"><span>🚐</span><div><strong>Toyota Dyna</strong><span class="v-tag-type">Light Commercial</span></div></div>
+      <div class="v-tag"><span>🚗</span><div><strong>Isuzu</strong><span class="v-tag-type">Commercial Vehicle</span></div></div>
+      <div class="v-tag"><span>🚙</span><div><strong>Suzuki</strong><span class="v-tag-type">Light Vehicle</span></div></div>
+      <div class="v-tag"><span>🏗️</span><div><strong>Ajax Fiori</strong><span class="v-tag-type">Construction Equipment</span></div></div>
+      <div class="v-tag"><span>⚡</span><div><strong>BYD NEV / EV</strong><span class="v-tag-type">Electric Vehicle</span></div></div>
+      <div class="v-tag"><span>🚜</span><div><strong>Jack</strong><span class="v-tag-type">Commercial Vehicle</span></div></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══ 03 — EDUCATIONAL QUALIFICATIONS ══ -->
+<section id="education" style="background:var(--navy2)">
+  <div class="section-header fade-in">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Educational Qualifications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid">
+
+    <div class="edu-card fade-in">
+      <div class="edu-card-top">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-level">Bachelor's Degree</div>
+        <div class="edu-degree">B.Sc. in Engineering</div>
+        <div class="edu-major">Mechanical Engineering</div>
+        <div class="edu-inst">🏛️ City University of Bangladesh</div>
+      </div>
+      <div class="edu-card-bottom">
+        <span class="edu-gpa">GPA: 3.21 / 4.00</span>
+        <span class="edu-year">2020</span>
+      </div>
+    </div>
+
+    <div class="edu-card fade-in">
+      <div class="edu-card-top">
+        <div class="edu-icon">🔧</div>
+        <div class="edu-level">Diploma</div>
+        <div class="edu-degree">Diploma in Engineering</div>
+        <div class="edu-major">Automobile Engineering</div>
+        <div class="edu-inst">🏛️ MAWTS Institute of Technology</div>
+      </div>
+      <div class="edu-card-bottom">
+        <span class="edu-gpa">GPA: 3.47 / 4.00</span>
+        <span class="edu-year">2013</span>
+      </div>
+    </div>
+
+    <div class="edu-card fade-in">
+      <div class="edu-card-top">
+        <div class="edu-icon">📚</div>
+        <div class="edu-level">Secondary School Certificate</div>
+        <div class="edu-degree">S.S.C</div>
+        <div class="edu-major">Business Studies</div>
+        <div class="edu-inst">🏫 Banskait P.J. High School</div>
+      </div>
+      <div class="edu-card-bottom">
+        <span class="edu-gpa">GPA: 4.25 / 5.00</span>
+        <span class="edu-year">2009</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 04 — SKILLS ══ -->
+<section id="skills" style="background:var(--navy)">
+  <div class="section-header fade-in">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Professional Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-wrap">
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">⚙️ Technical Skills</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Automobile Diagnostics</span>
+        <span class="skill-tag">Diesel Engine Repair</span>
+        <span class="skill-tag">CRDI / EMS Systems</span>
+        <span class="skill-tag">Hydraulic Systems</span>
+        <span class="skill-tag">Pneumatic Systems</span>
+        <span class="skill-tag">Root Cause Analysis</span>
+        <span class="skill-tag">PDI Operations</span>
+        <span class="skill-tag">Workshop Quality Control</span>
+        <span class="skill-tag">Preventive Maintenance</span>
+        <span class="skill-tag">EV Service Readiness</span>
+        <span class="skill-tag">BMS Fundamentals</span>
+        <span class="skill-tag">HV Safety Protocols</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">📊 Management Skills</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Workshop Management</span>
+        <span class="skill-tag">Team Leadership</span>
+        <span class="skill-tag">Dealer Management</span>
+        <span class="skill-tag">KPI Monitoring</span>
+        <span class="skill-tag">MIS Reporting</span>
+        <span class="skill-tag">Warranty Administration</span>
+        <span class="skill-tag">CRM Operations</span>
+        <span class="skill-tag">Annual Business Planning</span>
+        <span class="skill-tag">Budget Management</span>
+        <span class="skill-tag">Service Coordination</span>
+        <span class="skill-tag">Field Team Monitoring</span>
+        <span class="skill-tag">Customer Handling</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">💻 Computer & Language</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MS Word</span>
+        <span class="skill-tag">MS Excel</span>
+        <span class="skill-tag">MS PowerPoint</span>
+        <span class="skill-tag">DMS Software</span>
+        <span class="skill-tag">ERP / IFS</span>
+        <span class="skill-tag">MIS Dashboards</span>
+        <span class="skill-tag">Video Editing</span>
+        <span class="skill-tag">Photoshop (Basic)</span>
+        <span class="skill-tag">Bengali — Native</span>
+        <span class="skill-tag">English — Professional</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05 — WORK REPORTS ══ -->
+<section id="reports" style="background:var(--navy2)">
+  <div class="section-header fade-in">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Work Reports</h2>
+    <div class="section-line"></div>
+  </div>
+  <p class="report-pdf-note fade-in">
+    📁 <strong style="color:var(--white)">PDF যোগ করার নিয়ম:</strong> PDF ফাইলটি <code>portfolio/reports/</code> ফোল্ডারে রাখো।
+    তারপর নিচের কার্ডে <code>href="reports/file-name.pdf"</code> দিয়ে লিংক করো।
+    <code>&lt;span class="report-coming"&gt;Coming Soon&lt;/span&gt;</code> লাইনটি মুছে দিয়ে
+    <code>&lt;!-- PDF BUTTON --&gt;</code> comment সরিয়ে দিলেই সবুজ button দেখাবে।
+  </p>
+  <div class="report-grid">
+    <div class="report-card fade-in">
+      <div class="report-icon">📊</div>
+      <div class="report-title">Monthly Service Performance</div>
+      <div class="report-sub">KPI analysis, dealer-wise tracking, and monthly summary reports.</div>
+      <div class="report-lock">🔒</div>
+      <span class="report-coming">Coming Soon</span>
+      <!-- PDF BUTTON: uncomment when ready
+      <a href="reports/monthly-service.pdf" target="_blank" class="report-pdf-btn">📄 View Report</a>
+      -->
+    </div>
+    <div class="report-card fade-in">
+      <div class="report-icon">🔧</div>
+      <div class="report-title">Field Investigation Reports</div>
+      <div class="report-sub">FIR documentation, root cause analysis, and vehicle failure reports.</div>
+      <div class="report-lock">🔒</div>
+      <span class="report-coming">Coming Soon</span>
+      <!-- <a href="reports/fir.pdf" target="_blank" class="report-pdf-btn">📄 View Report</a> -->
+    </div>
+    <div class="report-card fade-in">
+      <div class="report-icon">📋</div>
+      <div class="report-title">Warranty & CRM Reports</div>
+      <div class="report-sub">Warranty processing accuracy, CRM records, and dealer support logs.</div>
+      <div class="report-lock">🔒</div>
+      <span class="report-coming">Coming Soon</span>
+      <!-- <a href="reports/warranty.pdf" target="_blank" class="report-pdf-btn">📄 View Report</a> -->
+    </div>
+    <div class="report-card fade-in">
+      <div class="report-icon">🏆</div>
+      <div class="report-title">Annual Business Plan (ABP)</div>
+      <div class="report-sub">Service growth targets, penetration analysis, and budget allocation.</div>
+      <div class="report-lock">🔒</div>
+      <span class="report-coming">Coming Soon</span>
+      <!-- <a href="reports/abp.pdf" target="_blank" class="report-pdf-btn">📄 View Report</a> -->
+    </div>
+    <div class="report-card fade-in">
+      <div class="report-icon">📈</div>
+      <div class="report-title">Dealer Performance & DMS</div>
+      <div class="report-sub">Dealer scorecard, DMS utilization, and service penetration analysis.</div>
+      <div class="report-lock">🔒</div>
+      <span class="report-coming">Coming Soon</span>
+      <!-- <a href="reports/dealer.pdf" target="_blank" class="report-pdf-btn">📄 View Report</a> -->
+    </div>
+    <div class="report-card fade-in">
+      <div class="report-icon">🛠️</div>
+      <div class="report-title">Workshop Efficiency & KPI</div>
+      <div class="report-sub">Productivity metrics, technician efficiency, and job turnaround data.</div>
+      <div class="report-lock">🔒</div>
+      <span class="report-coming">Coming Soon</span>
+      <!-- <a href="reports/kpi.pdf" target="_blank" class="report-pdf-btn">📄 View Report</a> -->
+    </div>
+  </div>
+</section>
+
+<!-- ══ 06 — WORK ACTIVITY ══ -->
+<section id="activity" style="background:var(--navy2)">
+  <div class="section-header fade-in">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Work Activity</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="g3">
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Runner Visit/Visit pictures-(Runner)-  (1).jpeg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Runner Visit/Visit pictures-(Runner)-  (2).jpeg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Runner Visit/Visit pictures-(Runner)-  (3).jpeg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Runner Visit/Visit pictures-(Runner)-  (4).jpeg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Runner Visit/Visit pictures-(Runner)-  (5).jpeg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Runner Visit/Visit pictures-(Runner)-  (6).jpeg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Rangs Work- (1).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Rangs Work- (2).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Meeting -.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Atul-3W.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Qute.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/3W Factory.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/EV 3W (1).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/EV 3W (2).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/EV Battery.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Ajax.jpeg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Ajax-2.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Suzuki.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Ambulance.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/IMG_20190210_182550.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/IMG_20240116_162216.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Work/Pic- (1).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Work/Pic- (2).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Work/Pic- (3).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Sonargaon WS/Pics- (1).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Sonargaon WS/Pics- (2).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Sonargaon WS/Pics- (3).jpg" alt="" onerror="this.style.display='none'"></div>
+  </div>
+</section>
+
+<!-- ══ 07 — CERTIFICATES ══ -->
+<section id="certificates" style="background:var(--navy)">
+  <div class="section-header fade-in">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Certificates & Training</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card fade-in"><div class="cert-img-wrap"><img src="images/SSC_Certificate.jpg" alt="" onerror="this.parentElement.style.background='#1E2D40'"></div><div class="cert-body"><div class="cert-title">Secondary School Certificate (SSC)</div><div class="cert-meta">Board of Intermediate & Secondary Education, (Comilla) — GPA 4.25/5.00</div><span class="cert-year">2009</span></div></div>
+    <div class="cert-card fade-in"><div class="cert-img-wrap"><img src="images/Diploma_Certificate.jpg" alt="" onerror="this.parentElement.style.background='#1E2D40'"></div><div class="cert-body"><div class="cert-title">Diploma in Automobile Engineering</div><div class="cert-meta">Mawts Institute of Bangladesh, (BTEB) — CGPA 3.47/4.00</div><span class="cert-year">2013</span></div></div>
+    <div class="cert-card fade-in"><div class="cert-img-wrap"><img src="images/BSC_Engineering.jpg" alt="" onerror="this.parentElement.style.background='#1E2D40'"></div><div class="cert-body"><div class="cert-title">B.Sc. in Mechanical Engineering</div><div class="cert-meta">City University of Bangladesh — GPA 3.21/4.00</div><span class="cert-year">2020</span></div></div>
+    <div class="cert-card fade-in"><div class="cert-img-wrap"><img src="images/Certificate_Eicher.jpg" alt="" onerror="this.parentElement.style.background='#1E2D40'"></div><div class="cert-body"><div class="cert-title">Overseas Distributor Training — Eicher</div><div class="cert-meta">VE Commercial Vehicles · RCDC, Kolkata, India</div><span class="cert-year">2018</span></div></div>
+    <div class="cert-card fade-in"><div class="cert-img-wrap"><img src="images/Mechanic_Training.jpeg" alt="" onerror="this.parentElement.style.background='#1E2D40'"></div><div class="cert-body"><div class="cert-title">BYD NEV Mechanic Training</div><div class="cert-meta">BYD Bangladesh — Certificate of Achievement</div><span class="cert-year">2025</span></div></div>
+    <div class="cert-card fade-in"><div class="cert-img-wrap"><img src="images/NEV_Training.jpeg" alt="" onerror="this.parentElement.style.background='#1E2D40'"></div><div class="cert-body"><div class="cert-title">BYD NEV Operation & Service Training</div><div class="cert-meta">BYD Bangladesh — Certificate of Achievement</div><span class="cert-year">2025</span></div></div>
+    <div class="cert-card fade-in"><div class="cert-img-wrap"><img src="images/" alt="" onerror="this.parentElement.style.background='#1E2D40'"></div><div class="cert-body"><div class="cert-title">NSDA</div><div class="cert-meta">Ucef Bangladesh — Certificate of Achievement</div><span class="cert-year">202</span></div></div>
+    <div class="cert-card fade-in"><div class="cert-img-wrap"><img src="images/" alt="" onerror="this.parentElement.style.background='#1E2D40'"></div><div class="cert-body"><div class="cert-title">NSDA</div><div class="cert-meta">Ucef Bangladesh — Certificate of Achievement</div><span class="cert-year">202</span></div></div>
+    <div class="cert-card fade-in"><div class="cert-img-wrap"><img src="images/" alt="" onerror="this.parentElement.style.background='#1E2D40'"></div><div class="cert-body"><div class="cert-title">NSDA</div><div class="cert-meta">Ucef Bangladesh — Certificate of Achievement</div><span class="cert-year">202</span></div></div>
+  </div>
+</section>
+
+<!-- ══ 08 — SOCIAL ACTIVITIES ══ -->
+<section id="social" style="background:var(--navy2)">
+  <div class="section-header fade-in">
+    <span class="section-num">08</span>
+    <h2 class="section-title">Social Activities</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="g3">
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Event/IMG_20181213_091721.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Event/IMG_20190101_131649.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Event/IMG_20190116_171520.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Event/IMG_20190116_172229.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Event/IMG_20190116_173325.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Event/IMG_20200101_172348~2.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Event/IMG_20200101_172743~2.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Event/IMG_20200101_172919~2.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Office Event/IMG_20200101_173254~2.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Camp/FB_IMG_1729607782788.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Camp/FB_IMG_1729607787841.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Camp/IMG_20181209_113611.jpg" alt="" onerror="this.style.display='none'"></div>
+  </div>
+</section>
+
+<!-- ══ 09 — ENTERTAINMENT ══ -->
+<section id="entertainment" style="background:var(--navy)">
+  <div class="section-header fade-in">
+    <span class="section-num">09</span>
+    <h2 class="section-title">Entertainment & Hobbies</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="g3">
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Tour/IMG_20181216_162553.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Tour/IMG_20181216_164208.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Tour/IMG_20181216_164230.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Tour/IMG_20181216_164651.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Tour/received_1154401558242127.jpeg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Hand Craft/Hand Craft- (1).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Hand Craft/Hand Craft- (2).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Hand Craft/Hand Craft- (3).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Hand Craft/Hand Craft- (4).jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="gallery-card fade-in"><div class="gallery-protect"><div class="gallery-badge">🔒 Protected</div></div><img src="images/Folders/Hand Craft/Hand Craft- (5).jpg" alt="" onerror="this.style.display='none'"></div>
+  </div>
+</section>
+
+<!-- ══ 10 — VIDEO GALLERY ══ -->
+<section id="videos" style="background:var(--navy)">
+  <div class="section-header fade-in">
+    <span class="section-num">10</span>
+    <h2 class="section-title">Video Gallery</h2>
+    <div class="section-line"></div>
+  </div>
+  <p class="video-add-note fade-in">
+    ⚠️ To add your YouTube videos: Open <code>index.html</code> in Notepad → find <code>VIDEO_ID_HERE</code> → replace with your YouTube video ID.<br>
+    Example: For <code>https://youtube.com/watch?v=<strong>dQw4w9WgXcQ</strong></code> → the ID is <code>dQw4w9WgXcQ</code>
+  </p>
+  <div class="video-grid">
+
+    <!-- Video 1: Replace VIDEO_ID_HERE with your YouTube video ID -->
+    <div class="video-card fade-in">
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon">▶️</div>
+          <div class="video-placeholder-text">Add YouTube Video</div>
+        </div>
+        <!-- UNCOMMENT below and add your video ID to show a real video: -->
+        <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" allowfullscreen></iframe> -->
+      </div>
+      <div class="video-body">
+        <div class="video-title">Workshop Training Session</div>
+        <div class="video-meta">Uttara Motors Ltd · 2024</div>
+      </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="video-card fade-in">
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon">▶️</div>
+          <div class="video-placeholder-text">Add YouTube Video</div>
+        </div>
+        <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" allowfullscreen></iframe> -->
+      </div>
+      <div class="video-body">
+        <div class="video-title">Service Campaign Event</div>
+        <div class="video-meta">Field Activity · 2023</div>
+      </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="video-card fade-in">
+      <div class="video-wrap">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon">▶️</div>
+          <div class="video-placeholder-text">Add YouTube Video</div>
+        </div>
+        <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" allowfullscreen></iframe> -->
+      </div>
+      <div class="video-body">
+        <div class="video-title">Technical Demo</div>
+        <div class="video-meta">EV Workshop · 2025</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 11 — NEWS / AWARDS / RECOGNITION ══ -->
+<section id="news" style="background:var(--navy)">
+  <div class="section-header fade-in">
+    <span class="section-num">11</span>
+    <h2 class="section-title">Awards & Recognition</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card fade-in">
+      <div class="news-img-wrap">
+        <img src="images/award1.jpg" alt="Award" onerror="this.style.display='none'">
+        <div class="news-img-icon">🏆</div>
+        <span class="news-badge award">Award</span>
+      </div>
+      <div class="news-body">
+        <div class="news-title">Best Service Performance — Dealer Workshop Excellence</div>
+        <div class="news-meta">Uttara Motors Limited · Bajaj Bangladesh</div>
+        <span class="news-year">Add Year</span>
+      </div>
+    </div>
+
+    <div class="news-card fade-in">
+      <div class="news-img-wrap">
+        <img src="images/award2.jpg" alt="Recognition" onerror="this.style.display='none'">
+        <div class="news-img-icon">🥇</div>
+        <span class="news-badge recognition">Recognition</span>
+      </div>
+      <div class="news-body">
+        <div class="news-title">Outstanding Team Leader — Service Operations</div>
+        <div class="news-meta">Internal Recognition · Workshop Division</div>
+        <span class="news-year">Add Year</span>
+      </div>
+    </div>
+
+    <div class="news-card fade-in">
+      <div class="news-img-wrap">
+        <img src="images/award3.jpg" alt="Certificate" onerror="this.style.display='none'">
+        <div class="news-img-icon">📰</div>
+        <span class="news-badge media">Media</span>
+      </div>
+      <div class="news-body">
+        <div class="news-title">Industry Training Completion — NTVQF Certified Professional</div>
+        <div class="news-meta">BTEB & NSDA · Bangladesh Technical Board</div>
+        <span class="news-year">2015</span>
+      </div>
+    </div>
+
+    <div class="news-card fade-in">
+      <div class="news-img-wrap">
+        <div class="news-img-icon">🎖️</div>
+        <span class="news-badge award">Award</span>
+      </div>
+      <div class="news-body">
+        <div class="news-title">Add Your Award or Achievement Here</div>
+        <div class="news-meta">Organization · Event Name</div>
+        <span class="news-year">Year</span>
+      </div>
+    </div>
+
+    <div class="news-card fade-in">
+      <div class="news-img-wrap">
+        <div class="news-img-icon">📣</div>
+        <span class="news-badge media">Media</span>
+      </div>
+      <div class="news-body">
+        <div class="news-title">Add Media Coverage or News Feature Here</div>
+        <div class="news-meta">Publication or Channel Name</div>
+        <span class="news-year">Year</span>
+      </div>
+    </div>
+
+    <div class="news-card fade-in">
+      <div class="news-img-wrap">
+        <div class="news-img-icon">🌟</div>
+        <span class="news-badge recognition">Recognition</span>
+      </div>
+      <div class="news-body">
+        <div class="news-title">Add Recognition or Appreciation Letter Here</div>
+        <div class="news-meta">Employer or Institution</div>
+        <span class="news-year">Year</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 13 — CONNECT ══ -->
+<section id="connect" style="background:var(--navy2)">
+  <div class="section-header fade-in">
+    <span class="section-num">12</span>
+    <h2 class="section-title">Connect With Me</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="social-links-grid">
+
+    <!-- ✏️ LINKEDIN: নিচের # এর জায়গায় তোমার LinkedIn link বসাও -->
+    <a href="www.linkedin.com/in/md-jahangir-alam1992" target="_blank" class="sl-card linkedin fade-in">
+      <div class="sl-icon">💼</div>
+      <div><div class="sl-label">LinkedIn</div><div class="sl-val">View Profile →</div></div>
+    </a>
+
+    <!-- ✏️ BD JOBS: নিচের লিংক এর জায়গায় তোমার BDJobs link বসাও -->
+    <a href="https://mybdjobs.bdjobs.com/jobseeker-panel/edit-profile?lang=en" target="_blank" class="sl-card bdjobs fade-in">
+      <div class="sl-icon">📄</div>
+      <div><div class="sl-label">BD Jobs</div><div class="sl-val">View Profile →</div></div>
+    </a>
+
+    <!-- ✏️ FACEBOOK: নিচের লিংক এর জায়গায় তোমার Facebook link বসাও -->
+    <a href="https://www.facebook.com/share/1BJHvR6wne/" target="_blank" class="sl-card facebook fade-in">
+      <div class="sl-icon">📘</div>
+      <div><div class="sl-label">Facebook</div><div class="sl-val">View Profile →</div></div>
+    </a>
+
+    <!-- ✏️ YOUTUBE: নিচের লিংক এর জায়গায় তোমার YouTube channel link বসাও -->
+    <a href="https://youtube.com/@mjainformation4992?si=HloOHavkw78Nz5Vk" target="_blank" class="sl-card youtube fade-in">
+      <div class="sl-icon">▶️</div>
+      <div><div class="sl-label">YouTube Channel</div><div class="sl-val">Subscribe →</div></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ══ 13 — PERSONAL DOCUMENTS ══ -->
+<section id="documents" style="background:var(--navy)">
+  <div class="section-header fade-in">
+    <span class="section-num">13</span>
+    <h2 class="section-title">Personal Documents</h2>
+    <div class="section-line"></div>
+  </div>
+  <p style="color:var(--gray);font-size:0.82rem;margin-bottom:28px" class="fade-in">🛡️ All personal documents are privacy-protected. Content is blurred for security.</p>
+  <div class="docs-grid">
+    <div class="doc-card fade-in">
+      <div class="doc-img-wrap">
+        <img src="images/nid.jpg" alt="NID" onerror="this.style.display='none'">
+        <div class="doc-shield"><div class="doc-shield-icon">🛡️</div><div class="doc-shield-text">Privacy Protected</div></div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-title">National ID Card</div>
+        <div class="doc-meta">Bangladesh Election Commission</div>
+        <div class="doc-id">NID: 821 305 4813</div>
+      </div>
+    </div>
+    <div class="doc-card fade-in">
+      <div class="doc-img-wrap">
+        <img src="images/passport.jpg" alt="Passport" onerror="this.style.display='none'">
+        <div class="doc-shield"><div class="doc-shield-icon">🛡️</div><div class="doc-shield-text">Privacy Protected</div></div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-title">Passport</div>
+        <div class="doc-meta">Government of Bangladesh</div>
+        <div class="doc-id">No: A07503027</div>
+      </div>
+    </div>
+    <div class="doc-card fade-in">
+      <div class="doc-img-wrap">
+        <img src="images/driving.jpg" alt="Driving License" onerror="this.style.display='none'">
+        <div class="doc-shield"><div class="doc-shield-icon">🛡️</div><div class="doc-shield-text">Privacy Protected</div></div>
+      </div>
+      <div class="doc-body">
+        <div class="doc-title">Driving License</div>
+        <div class="doc-meta">Bangladesh Road Transport Authority</div>
+        <div class="doc-id">No: DK1031977CL0000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REVIEWS & TESTIMONIALS ══ -->
+<section id="testimonials" style="background:var(--navy2)">
+  <div class="section-header fade-in">
+    <span class="section-num">14</span>
+    <h2 class="section-title">Reviews & Testimonials</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <!-- Static Reference Reviews -->
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="testimonial-text">Jahangir has been an outstanding In-Charge for our factory and service operations. His ability to manage a large team of technicians while maintaining service quality across 30+ dealers is truly commendable. His dedication to customer satisfaction and KPI-driven approach has significantly improved our service performance.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SH</div>
+        <div><div class="author-name">Md. Shahadat Hossain</div><div class="author-role">COO — Bajaj 2W & 3W Sales</div><div class="author-company">Uttara Motors Limited</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="testimonial-text">During his time at Rangs Group, Jahangir demonstrated exceptional technical expertise in commercial vehicle diagnostics and workshop management. His root cause analysis skills and ability to minimize vehicle downtime made him a valuable asset. A true professional and reliable team leader.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AI</div>
+        <div><div class="author-name">Md. Ariful Islam</div><div class="author-role">Head of Aftersales — Service & Parts</div><div class="author-company">Mitsubishi FUSO, Rancon Trucks & Buses Ltd.</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="testimonial-text">Jahangir consistently delivers results under pressure. His technical knowledge of diesel engines, CRDI systems, and now EV technologies sets him apart from his peers. His communication with both technical and non-technical stakeholders is excellent.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">JA</div>
+        <div><div class="author-name">Senior Colleague</div><div class="author-role">Workshop Management Team</div><div class="author-company">Automobile Industry, Bangladesh</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <p class="testimonial-text">As a customer at Uttara Motors, the workshop runs smoothly, issues are diagnosed correctly the first time, and the team always follows up. The 95% satisfaction rate is truly well-deserved.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">CC</div>
+        <div><div class="author-name">Corporate Client</div><div class="author-role">Fleet Management</div><div class="author-company">Dhaka, Bangladesh</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Public Live Review System -->
+  <div class="review-divider" style="margin-top:44px">
+    <div class="review-divider-line"></div>
+    <div class="review-divider-text">Submit a Public Review</div>
+    <div class="review-divider-line"></div>
+  </div>
+
+  <!-- Firebase Setup Note -->
+  <div class="firebase-note fade-in" id="firebase-note">
+    🔥 <strong>Firebase free setup করো (৫ মিনিট) — তাহলে এই form কাজ করবে:</strong><br>
+    1. <a href="https://firebase.google.com" target="_blank" style="color:#93c5fd">firebase.google.com</a> → Free account → New project → Firestore Database → Test mode Enable<br>
+    2. Project Settings ⚙️ → Web app → Config copy করো → নিচের script এ <code>YOUR_API_KEY</code> ইত্যাদি replace করো<br>
+    3. এই note টি মুছে দাও (<code>id="firebase-note"</code> div delete করো) → deploy করো → reviews live!
+  </div>
+
+  <!-- Public Reviews Display -->
+  <div class="public-reviews-list" id="public-reviews-list">
+    <div class="reviews-loading" id="reviews-loading">💬 Public reviews এখানে দেখাবে — Firebase setup করার পরে।</div>
+  </div>
+
+  <!-- Review Form -->
+  <div class="review-form-card fade-in" style="margin-top:28px">
+    <div class="review-form-title">✍️ Write a Review</div>
+    <div class="review-form-sub">আপনার নাম, পদবী ও প্রতিষ্ঠানের নাম দিয়ে একটি সত্যিকারের রিভিউ দিন</div>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold3);margin-bottom:7px">Your Rating ⭐</div>
+      <div class="review-stars-input">
+        <button class="star-btn" onclick="setRating(1)">★</button>
+        <button class="star-btn" onclick="setRating(2)">★</button>
+        <button class="star-btn" onclick="setRating(3)">★</button>
+        <button class="star-btn" onclick="setRating(4)">★</button>
+        <button class="star-btn" onclick="setRating(5)">★</button>
+      </div>
+    </div>
+
+    <div class="review-form-grid">
+      <div class="review-field"><label>আপনার নাম *</label><input type="text" id="rv-name" placeholder="Md. Rahim Uddin" maxlength="60"></div>
+      <div class="review-field"><label>পদবী / Position *</label><input type="text" id="rv-role" placeholder="Service Manager" maxlength="80"></div>
+      <div class="review-field"><label>প্রতিষ্ঠান / Company *</label><input type="text" id="rv-company" placeholder="ABC Motors Ltd." maxlength="80"></div>
+      <div class="review-field"><label>সম্পর্ক / Relation</label>
+        <select id="rv-relation">
+          <option value="">-- Select --</option>
+          <option>Colleague</option><option>Client / Customer</option>
+          <option>Dealer Partner</option><option>Senior / Manager</option>
+          <option>Subordinate</option><option>Industry Peer</option>
+        </select>
+      </div>
+    </div>
+    <div class="review-field" style="margin-bottom:18px">
+      <label>আপনার রিভিউ *</label>
+      <textarea id="rv-text" placeholder="Jahangir এর কাজ সম্পর্কে আপনার অভিজ্ঞতা শেয়ার করুন..." maxlength="500"></textarea>
+    </div>
+    <button class="review-submit-btn" id="rv-btn" onclick="submitReview()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      Submit Review
+    </button>
+    <div class="review-msg" id="rv-msg"></div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" style="background:var(--navy)">
+  <div class="section-header fade-in">
+    <span class="section-num">15</span>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card fade-in"><div class="contact-icon">📞</div><div class="contact-label">Phone</div><div class="contact-value">+8801670-756318</div></div>
+    <div class="contact-card fade-in"><div class="contact-icon">✉️</div><div class="contact-label">Email</div><div class="contact-value">jahangir09972@gmail.com</div></div>
+    <div class="contact-card fade-in"><div class="contact-icon">🏢</div><div class="contact-label">Current Employer</div><div class="contact-value">Uttara Motors Limited</div></div>
+    <div class="contact-card fade-in"><div class="contact-icon">📍</div><div class="contact-label">Location</div><div class="contact-value">Dhaka, Bangladesh</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Md. Jahangir Alam</div>
+  <div class="footer-right">© 2026 · Automobile Service Expert · All rights reserved · Content protected</div>
+</footer>
+
+<script>
+// Protection
+document.addEventListener('contextmenu',e=>{e.preventDefault();toast();return false;});
+document.addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey)&&['s','p','u','a','c'].includes(e.key.toLowerCase())){e.preventDefault();toast();return false;}
+  if(e.key==='F12'){e.preventDefault();return false;}
+  if(e.key==='PrintScreen')toast();
+});
+document.querySelectorAll('img').forEach(img=>{
+  img.setAttribute('draggable','false');
+  img.addEventListener('dragstart',e=>e.preventDefault());
+  img.addEventListener('mousedown',e=>{if(e.button!==0)e.preventDefault();});
+});
+window.addEventListener('beforeprint',()=>{document.body.style.display='none';});
+
+let tt;
+function toast(){
+  const el=document.getElementById('rc-block');
+  el.classList.add('show');clearTimeout(tt);
+  tt=setTimeout(()=>el.classList.remove('show'),2800);
+}
+
+// Scroll animation
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target);}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Nav shrink
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.padding=window.scrollY>50?'9px 48px':'14px 48px';
+});
+</script>
+
+<!-- Social Links Manager -->
+<script>
+// Load saved links on page load
+(function loadSavedLinks() {
+  const links = {
+    linkedin: localStorage.getItem('sl_linkedin') || '',
+    bdjobs:   localStorage.getItem('sl_bdjobs')   || '',
+    facebook: localStorage.getItem('sl_facebook') || '',
+    youtube:  localStorage.getItem('sl_youtube')  || ''
+  };
+  ['linkedin','bdjobs','facebook','youtube'].forEach(id => {
+    const el = document.getElementById('sl-' + id);
+    if (el && links[id]) el.href = links[id];
+  });
+})();
+
+function toggleEditPanel() {
+  const panel = document.getElementById('social-edit-panel');
+  const btn   = document.getElementById('sep-toggle');
+  const show  = panel.style.display === 'none';
+  panel.style.display = show ? 'block' : 'none';
+  btn.textContent = show ? '✖ Close' : '⚙️ Edit Social Links';
+  if (show) {
+    // Pre-fill current saved values
+    ['linkedin','bdjobs','facebook','youtube'].forEach(id => {
+      const inp = document.getElementById('inp-' + id);
+      if (inp) inp.value = localStorage.getItem('sl_' + id) || '';
+    });
+  }
+}
+
+function saveLinks() {
+  const fields = ['linkedin','bdjobs','facebook','youtube'];
+  fields.forEach(id => {
+    const val = (document.getElementById('inp-' + id).value || '').trim();
+    if (val) {
+      localStorage.setItem('sl_' + id, val);
+      const link = document.getElementById('sl-' + id);
+      if (link) link.href = val;
+    }
+  });
+  const msg = document.getElementById('sep-msg');
+  msg.textContent = '✅ Links saved! They will stay saved in this browser.';
+  msg.style.display = 'block';
+  setTimeout(() => {
+    msg.style.display = 'none';
+    toggleEditPanel();
+  }, 2500);
+}
+</script>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+// ══ FIREBASE CONFIG — Replace with your own values ══
+const firebaseConfig = {
+  apiKey:            "YOUR_API_KEY",
+  authDomain:        "YOUR_PROJECT.firebaseapp.com",
+  projectId:         "YOUR_PROJECT",
+  storageBucket:     "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId:             "YOUR_APP_ID"
+};
+// ═════════════════════════════════════════════════════
+
+let db = null, firebaseReady = false, currentRating = 0;
+try {
+  if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.firestore();
+    firebaseReady = true;
+    document.getElementById("firebase-note").style.display = "none";
+    loadReviews();
+  } else {
+    document.getElementById("reviews-loading").textContent = "💬 Firebase setup করার পর public reviews এখানে দেখাবে।";
+  }
+} catch(e) {}
+
+function loadReviews() {
+  if (!db) return;
+  db.collection("reviews").orderBy("timestamp","desc").limit(20)
+    .onSnapshot(snap => {
+      const c = document.getElementById("public-reviews-list");
+      if (snap.empty) { c.innerHTML = "<div class='reviews-loading'>💬 এখনো কোনো review নেই। প্রথম review দিন!</div>"; return; }
+      c.innerHTML = "";
+      snap.forEach(doc => {
+        const r = doc.data();
+        const stars = "★".repeat(r.rating||5) + "☆".repeat(5-(r.rating||5));
+        const init = (r.name||"A").split(" ").map(w=>w[0]).join("").substring(0,2).toUpperCase();
+        const dt = r.timestamp ? new Date(r.timestamp.toDate()).toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"}) : "";
+        const rel = r.relation ? `<span style="font-size:.6rem;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);color:var(--gold3);padding:1px 6px;border-radius:2px;margin-left:5px">${r.relation}</span>` : "";
+        const card = document.createElement("div");
+        card.className = "pub-review-card";
+        card.innerHTML = `<div class="pub-review-stars">${stars}</div><div class="pub-review-text">${esc(r.text||"")}</div><div class="pub-review-author"><div class="pub-avatar">${init}</div><div><div class="pub-author-name">${esc(r.name||"")}${rel}</div><div class="pub-author-role">${esc(r.role||"")}</div><div class="pub-author-company">${esc(r.company||"")}</div></div><div class="pub-date">${dt}</div></div>`;
+        c.appendChild(card);
+      });
+    });
+}
+
+function setRating(v) {
+  currentRating = v;
+  document.querySelectorAll(".star-btn").forEach((b,i) => b.classList.toggle("active", i < v));
+}
+
+async function submitReview() {
+  const name = document.getElementById("rv-name").value.trim();
+  const role = document.getElementById("rv-role").value.trim();
+  const company = document.getElementById("rv-company").value.trim();
+  const text = document.getElementById("rv-text").value.trim();
+  const relation = document.getElementById("rv-relation").value;
+  const btn = document.getElementById("rv-btn");
+
+  if (!name||!role||!company||!text) { showMsg("⚠️ নাম, পদবী, প্রতিষ্ঠান ও রিভিউ অবশ্যই লিখুন।","error"); return; }
+  if (!currentRating) { showMsg("⭐ একটি rating দিন।","error"); return; }
+  if (text.length < 20) { showMsg("✏️ রিভিউ কমপক্ষে ২০ অক্ষরের হতে হবে।","error"); return; }
+  if (!firebaseReady||!db) { showMsg("⚠️ Firebase setup হয়নি।","error"); return; }
+
+  btn.disabled = true; btn.textContent = "⏳ Submitting...";
+  try {
+    await db.collection("reviews").add({ name, role, company, relation, text, rating: currentRating, timestamp: firebase.firestore.FieldValue.serverTimestamp() });
+    showMsg("✅ রিভিউ প্রকাশিত হয়েছে! ধন্যবাদ।","success");
+    ["rv-name","rv-role","rv-company","rv-text"].forEach(id => document.getElementById(id).value="");
+    document.getElementById("rv-relation").value=""; currentRating=0; setRating(0);
+  } catch(e) { showMsg("❌ সমস্যা হয়েছে। আবার চেষ্টা করুন।","error"); }
+  btn.disabled=false; btn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg> Submit Review';
+}
+
+function showMsg(t,type) {
+  const el=document.getElementById("rv-msg"); el.textContent=t; el.className="review-msg "+type; el.style.display="block";
+  setTimeout(()=>el.style.display="none",5000);
+}
+function esc(s) { return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+</script>
+</body>
+</html>

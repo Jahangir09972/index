@@ -1,0 +1,38 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  JAHANGIR ALAM — PORTFOLIO WEBSITE
+  HOW TO USE & DEPLOY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1 — ADD YOUR PHOTOS
+  • Put your photos inside the "images" folder
+  • Open index.html in Notepad
+  • Find: src="" (inside gallery-card sections)
+  • Replace with: src="images/your-photo-name.jpg"
+  • Example: src="images/workshop1.jpg"
+
+STEP 2 — DEPLOY FREE ON NETLIFY
+  1. Go to: https://netlify.com
+  2. Sign up FREE (use Google or email)
+  3. Click "Add new site" → "Deploy manually"
+  4. DRAG this entire "portfolio" FOLDER onto the page
+  5. In 30 seconds you get a FREE link like:
+     https://jahangir-alam.netlify.app
+  6. You can share this link with anyone!
+
+STEP 3 — CUSTOM NAME (optional, free)
+  • In Netlify, click "Site configuration"
+  • Change site name to: jahangiralam
+  • Your link becomes: jahangiralam.netlify.app
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PROTECTION FEATURES ACTIVE:
+  ✅ Right-click blocked on all content
+  ✅ Ctrl+S (save) blocked
+  ✅ Ctrl+P (print) blocked
+  ✅ Image drag & drop blocked
+  ✅ Watermark on all gallery images
+  ✅ Text selection blocked
+  ⚠️  OS screenshot (Print Screen) cannot be
+      blocked by any website — this is a browser
+      limitation. Watermark helps identify misuse.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
